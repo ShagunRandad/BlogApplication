@@ -17,8 +17,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/blog-api/v1/users/getAllUsers").hasRole("ADMIN")
-                .requestMatchers("/*").hasRole("USER")
+            		 .requestMatchers("/*").hasRole("USER")
+                .requestMatchers("/blog-api/v1/users/getAllUsers").hasRole("ADMIN-1")
                 .anyRequest().authenticated()
             )
             .oauth2ResourceServer(oauth2 -> oauth2
